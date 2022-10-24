@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn kanban.wsgi
+web: gunicorn activity.wsgi --log-file-
