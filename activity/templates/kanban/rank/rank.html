@@ -1,0 +1,19 @@
+{% extends "kanban/base.html" %}
+
+{% block content %}
+<div class="container">
+    <img src="data:image/png;base64,{{ chart | safe }}">
+    <img src="data:image/png;base64,{{ chart1 | safe }}">
+    <br>
+
+   
+</div>
+<style>
+    .container{
+        width:90vw;
+    }
+    .container img{
+        width: 90vw;
+    }
+</style>
+{% endblock %}

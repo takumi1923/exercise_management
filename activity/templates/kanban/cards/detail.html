@@ -1,0 +1,30 @@
+{% extends "kanban/base.html" %}
+
+{% block content %}
+
+<h1>予定詳細</h1>
+<dl class="row">
+  <dt class="col-sm-3">タイトル</dt>
+  <dd class="col-sm-9">{{ card.title }}</dd>
+  <dt class="col-sm-3">詳細</dt>
+  <dd class="col-sm-9">{{ card.description }}</dd>
+  <dt class="col-sm-3">日付</dt>
+  <dd class="col-sm-9">{{ card.date }}</dd>
+  <dt class="col-sm-3">開始時間</dt>
+  <dd class="col-sm-9">{{ card.start_time }}</dd>
+  <dt class="col-sm-3">運動時間</dt>
+  <dd class="col-sm-9">{{ card.excercise_time }}</dd>
+  <dt class="col-sm-3">タスク種類</dt>
+  <dd class="col-sm-9">{{ card.list.title }}</dd>
+  
+</dl>
+
+{% if card.list.title == "これから行う予定のもの" %}
+<a class="btn btn-primary" href="{% url 'activity:cards_update' card.pk  %}" role="button">編集</a>
+{% elif card.list.title == "代替日" %}
+<a class="btn btn-primary" href="{% url 'activity:cards_update' card.pk  %}" role="button">編集</a>
+{% else %}
+<a class="btn btn-primary" role="button">編集できません</a>
+{% endif %}
+
+{% endblock %}

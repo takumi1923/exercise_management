@@ -1,0 +1,29 @@
+{% extends "kanban/base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>スケジュール一覧</h1>
+  <a class="btn btn-primary my-3" href="{% url 'activity:cards_create' %}" role="button">スケジュール作成</a>
+  <div class="card-columns">
+    {% for card in card_list %}
+    {% if card.user.username == request.user.username %}
+    <a href="{% url 'activity:cards_detail' card.pk %}" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ card.title }}</h5>
+        <footer>
+          <small class="text-muted">日付: {{ card.date }}</small>
+        </footer>
+        <footer>
+            <small class="text-muted">開始時刻: {{ card.start_time }}</small>
+        </footer>
+        <footer>
+          <small class="text-muted">運動時間: {{ card.excercise_time }}</small>
+        </footer>
+
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

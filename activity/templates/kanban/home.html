@@ -1,0 +1,75 @@
+{% extends "kanban/base.html" %}
+
+{% block content %}
+
+<style>
+body { padding-top: 70px; }
+</style>
+<div class = "center">
+<div class="container" style="display: table-cell !important">
+  
+  <div class="row flex-nowrap">
+    
+    {% for list in list_list %}
+    <div class="bg-light m-3 p-2 " style="width: 240px; height: 100%">
+      <h4>{{ list.title }}
+      </h4>
+      {% if list.title == "これから行う予定のもの" %}　
+      {% for card in list.card_set.all %}
+      {% if card.user.username == request.user.username %}
+      <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ card.title }}</h5>
+          <footer>
+            <small class="text-muted">作成者: {{ card.date }}</small>
+          </footer>
+          <footer>
+            <small class="text-muted">活動開始時間: {{ card.start_time }}</small>
+          </footer>
+          <footer>
+            <small class="text-muted">活動時間: {{ card.excercise_time }}</small>
+          </footer>
+        </div>
+      </a>
+      {% endif %}
+      {% endfor %}
+      <a href="{% url 'activity:cards_create_from_home' list.pk %}" class="text-dark"><i class="far fa-plus-square"></i> さらに予定を追加</a>
+      {% else %} 
+      {% for card in list.card_set.all %}
+      {% if card.user.username == request.user.username %}
+      <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ card.title }}</h5>
+          <footer>
+            <small class="text-muted">作成者: {{ card.date }}</small>
+          </footer>
+          <footer>
+            <small class="text-muted">活動開始時間: {{ card.start_time }}</small>
+          </footer>
+          <footer>
+            <small class="text-muted">活動時間: {{ card.excercise_time }}</small>
+          </footer>
+        </div>
+      </a>
+      {% endif %}
+      {% endfor %}
+      {% endif %}<!-- urlを編集 -->
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+
+</div>
+<style>
+  .center{
+    text-align: center;
+  }
+</style>
+
+
+
+
+
+
+{% endblock %}

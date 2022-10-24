@@ -1,0 +1,132 @@
+{% extends "kanban/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class = "container">
+  <div class = "center">
+  <h1>キャラクター育成</h1>
+  <br>
+  
+    {% for education in user.ikusei_sum_set.all %}
+          {% if education.ikusei_sum > 25 %}
+          
+          <p>育成は終了しました！引き続き運動継続頑張りましょう</p>
+          <br>
+          
+        
+
+          {% elif education.ikusei_sum > 20 %}
+          {% for amari in user.point_amari_set.all %} 
+  
+          <h2>残りのゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
+  
+          {% endfor %}
+        
+            <br>
+            <P><img src="https://thumb.ac-illust.com/7b/7b1ab1950a06944ac6c7671e54ea2be1_w.jpeg" alt="犬のイラスト" title="生まれたての犬" width="300"height="300" borde></P>
+            <h3 class = "center">育成付与合計ポイント：{{education.ikusei_sum}}</h3>
+            <h3 class = "center">育成レベル：逆立ちができるようになった！</h3>
+            <h3 class = "center">育成段階：5/5</h3>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">送信</button>
+            </form>
+          
+          {% elif education.ikusei_sum > 15 %}
+          {% for amari in user.point_amari_set.all %} 
+  
+          <h2>残りのゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
+  
+          {% endfor %}
+    
+            <br>
+            <P><img src="https://thumb.ac-illust.com/b4/b4fb7762894d918ee63553a31d255604_w.jpeg" alt="犬のイラスト" title="生まれたて犬"width="300" height="300" ></P>
+            <h3 class = "center">育成付与合計ポイント：{{education.ikusei_sum}}</h3>
+            <h3 class = "center">育成レベル：二足歩行できるようになった！</h3>
+            <h3 class = "center">育成段階：4/5</h3>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">送信</button>
+            </form>
+          
+          {% elif education.ikusei_sum > 10 %}
+          {% for amari in user.point_amari_set.all %} 
+  
+          <h2>残りのゲーミフィケーションポイント: {{amari.point_amari }}</h2>
+  
+          {% endfor %}              
+            <br>
+            <P><img src="https://thumb.ac-illust.com/69/69ea496586791829cbf49d4bf760e45e_w.jpeg" alt="犬のイラスト" title="生まれたの犬" width="300"height="300" ></P>
+            <h3 class = "center">育成付与合計ポイント：{{education.ikusei_sum}}</h3>
+            <h3 class = "center">育成レベル：歩けるようになった！</h3>
+            <h3 class = "center">育成段階：3/5</h3>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">送信</button>
+            </form>
+         
+          {% elif education.ikusei_sum > 5 %}
+
+          {% for amari in user.point_amari_set.all %} 
+  
+             <h2>残りのゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
+  
+            {% endfor %}
+          
+              
+            
+            <br>
+            <P><img src="https://thumb.ac-illust.com/43/43e8b6997dcaf9c200d5bbdbd6c0ea9d_w.jpeg" alt="犬のイラスト" title="生まれたの犬" width="300"height="300" ></P>
+            <h3 class = "center">育成付与合計ポイント：{{education.ikusei_sum}}</h3>
+            <h3 class = "center">育成レベル：成長のために睡眠中</h3>
+            <h3 class = "center">育成段階：2/5</h3>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">送信</button>
+            </form>
+          
+          {% elif education.ikusei_sum > 0 %}
+
+          {% for amari in user.point_amari_set.all %} 
+  
+             <h2>残りのゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
+  
+          {% endfor %}
+          
+          
+              <h3 class = "center">育成付与合計ポイント：{{education.ikusei_sum}}</h3>
+              <h3 class = "center">育成レベル：生まれたて！</h3>
+              <h3 class = "center">育成段階：1/5</h3>
+            
+           
+            <br>
+            <P><img src="https://thumb.ac-illust.com/c3/c37190ac9cd349d9591ea7c0fdbee3b8_w.jpeg" alt="犬のイラスト" title="生まれたの犬" width="300"height="300" ></P>
+            <h3 class = "center">育成付与合計ポイント：{{education.ikusei_sum}}</h3>
+              <h3 class = "center">育成レベル：生まれたて！</h3>
+              <h3 class = "center">育成段階：1/5</h3>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">送信</button>
+            </form>
+          
+         {% endif %}     
+    {% endfor %}
+    
+  
+    
+  
+</div>
+<style>
+  .center{
+    text-align: center;
+  }
+</style>
+</div>
+
+{% endblock %}
