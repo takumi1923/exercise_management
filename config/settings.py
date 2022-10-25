@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from socket import gethostname
+hostname = gethostname()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-%7ci0o^0o$qbrdkyco1@7lvnb$!r$bwwws=9rd(a+3o#16-+$(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["undo-management.herokuapp.com"]
+
 
 
 # Application definition
@@ -76,12 +78,33 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+if "COMPUTER-NAME" in hostname:
+    # DEBUG環境
+    #デバッグ環境
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',  
+        }
     }
-}
+    ALLOWED_HOSTS = ['127.0.0.1']
+else:
+    # 本番環境
+    # DEBUG = FALSE
+    import dj_database_url
+    db_from_env = dj_database_url.config()
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
+    ALLOWED_HOSTS = ['undo-management.herokuapp.com']
+
+
+
+
+
+
+
 
 
 # Password validation

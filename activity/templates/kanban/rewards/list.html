@@ -8,9 +8,9 @@
   
     <br>
 
-    {% for reward in user.reward_recieve_set.all %} 
+    {% for amari in user.point_amari_set.all %} 
   
-      <h2 class = "center">現在のゲーミフィケーションポイント: {{ reward.reward_recieve_point}}</h2>
+      <h2 class = "center">現在のゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
   
     {% endfor %}
     {% for used in user.used_point_set.all %}
