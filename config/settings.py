@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from socket import gethostname
 hostname = gethostname()
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,10 +84,10 @@ if "COMPUTER-NAME" in hostname:
     # DEBUG環境
     #デバッグ環境
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',  
-        }
+        db_from_env = dj_database_url.config()
+    DATABASES = {
+        'default': dj_database_url.config()
+    }  
     }
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
@@ -99,6 +100,10 @@ else:
     }
     ALLOWED_HOSTS = ['undo-management.herokuapp.com']
 
+#'default': {
+            #'ENGINE': 'django.db.backends.sqlite3',
+            #'NAME': BASE_DIR / 'db.sqlite3',  
+        #}
 
 
 
