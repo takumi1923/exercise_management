@@ -83,19 +83,32 @@ WSGI_APPLICATION = 'config.wsgi.application'
 if "COMPUTER-NAME" in hostname:
     # DEBUG環境
     #デバッグ環境
-    
-    db_from_env = dj_database_url.config()
     DATABASES = {
-        'default': dj_database_url.config()
+        'default':{
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME':'d4npabo6pd7k7a',
+            'USER':'dekanizvxevzpx',
+            'PASSWORD':'a0aae2eb7273d92b590508db2ffb72310e978ccfd893e799e19dbdd4d6ec8335',
+            'HOST':'ec2-52-4-87-74.compute-1.amazonaws.com',
+            'PORT':'5432',
+        }     
+        
     }  
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
     # 本番環境
     # DEBUG = FALSE
-    import dj_database_url
-    db_from_env = dj_database_url.config()
+    
+    
     DATABASES = {
-        'default': dj_database_url.config()
+        'default':{
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME':'d4npabo6pd7k7a',
+            'USER':'dekanizvxevzpx',
+            'PASSWORD':'a0aae2eb7273d92b590508db2ffb72310e978ccfd893e799e19dbdd4d6ec8335',
+            'HOST':'ec2-52-4-87-74.compute-1.amazonaws.com',
+            'PORT':'5432',
+        }       
     }
     ALLOWED_HOSTS = ['undo-management.herokuapp.com']
 
