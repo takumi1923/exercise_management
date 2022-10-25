@@ -83,12 +83,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 if "COMPUTER-NAME" in hostname:
     # DEBUG環境
     #デバッグ環境
-    DATABASES = {
-        db_from_env = dj_database_url.config()
+    
+    db_from_env = dj_database_url.config()
     DATABASES = {
         'default': dj_database_url.config()
     }  
-    }
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
     # 本番環境
