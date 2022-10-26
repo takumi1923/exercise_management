@@ -24,9 +24,10 @@ urlpatterns = [
     path("rank/",views.RankView.as_view(),name="rank_create"),
     path("rank1/",views.Rank1View.as_view(),name="rank1_create"),
     path("reward/",views.RewardListView.as_view(),name = "rewards_list"),
+    path("reward/",views.RewardDetailView.as_view(),name = "rewards_detail"),
     path("reward/<int:pk>/delete",views.RewardDeleteView.as_view(),name = "rewards_delete"),
     path("education/",views.EducationalView.as_view(),name = "education_list"),
     path('mycalendar/', views.MyCalendar.as_view(), name='mycalendar'),
     path('mycalendar/<int:year>/<int:month>/<int:day>/', views.MyCalendar.as_view(), name='mycalendar'),
-    
+
 ]

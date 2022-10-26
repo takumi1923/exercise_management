@@ -1,0 +1,31 @@
+{% extends "kanban/base.html" %}
+
+{% block content %}
+<div class = "center">
+  <div class = "container">
+ 
+    <h1 class = "center">貰えたご褒美</h1>
+
+    {% for reward in object_list %}
+      {% if reward.user.username == request.user.username %}
+          <div class = "row">
+          <div class = "a">
+            <div class="c">ご褒美内容 : {{ reward.reward }}</div> 
+            <div class="d">ご褒美消費日 : {{ reward.date }}</div> 
+          </div>
+          <div class = "b">
+            <a class="btn btn-danger"href="{% url 'activity:rewards_delete' reward.pk  %}" role="button">消費済みご褒美削除</a>
+          </div>
+        </div>
+          
+
+        {% endif %}    
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .center{
+    text-align: center;
+  }
+</style>
+{% endblock %}

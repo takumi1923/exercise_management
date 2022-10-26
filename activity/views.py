@@ -251,9 +251,9 @@ class RewardListView(LoginRequiredMixin,CreateView):
         
         
 
-class RewardDetailView(LoginRequiredMixin, DetailView):
+class RewardDetailView(LoginRequiredMixin, ListView):
     model = RewardTake
-    template_name = "kanban/rewards/detail.html"
+    template_name = "kanban/rewards/list1.html"
     
 class RewardDeleteView(LoginRequiredMixin, DeleteView):
     model = RewardTake

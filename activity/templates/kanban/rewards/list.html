@@ -10,37 +10,18 @@
 
     {% for reward in user.reward_recieve_set.all %} 
   
-      <h2 class = "center">現在のゲーミフィケーションポイント: {{ reward.reward_recieve_point}}</h2>
+      <h2 class = "center">現在のご褒美ポイント: {{ reward.reward_recieve_point}}</h2>
   
     {% endfor %}
-    {% for used in user.used_point_set.all %}
-      <h2 class = "center">使用済みポイント: {{ used.used_point }}</h2>
-    {% endfor %}
   
-   
-
-
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit" class="btn btn-primary">ご褒美をもらいに行こう！</button>
     </form>
-
-    {% for reward in object_list %}
-      {% if reward.user.username == request.user.username %}
-          <div class = "row">
-          <div class = "a">
-            <div class="c">ご褒美内容 : {{ reward.reward }}</div> 
-            <div class="d">ご褒美消費日 : {{ reward.date }}</div> 
-          </div>
-          <div class = "b">
-            <a class="btn btn-danger"href="{% url 'activity:rewards_delete' reward.pk  %}" role="button">消費済みご褒美削除</a>
-          </div>
-        </div>
-          
-
-        {% endif %}    
-    {% endfor %}
+  </div>
+  <div class = "b">
+    <a class="btn btn-danger"href="{% url 'activity:rewards_detail'  %}" role="button">消費済みご褒美削除</a>
   </div>
 </div>
 <style>
