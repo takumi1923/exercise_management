@@ -17,9 +17,9 @@
         
 
           {% elif education.ikusei_sum > 20 %}
-          {% for amari in user.point_amari_set.all %} 
+          {% for reward in user.reward_recieve_set.all %} 
   
-          <h2>残りのゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
+          <h2>残りのゲーミフィケーションポイント: {{reward.reward_recieve_point}}</h2>
   
           {% endfor %}
         
@@ -35,9 +35,9 @@
             </form>
           
           {% elif education.ikusei_sum > 15 %}
-          {% for amari in user.point_amari_set.all %} 
+          {% for reward in user.reward_recieve_set.all %} 
   
-          <h2>残りのゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
+          <h2>残りのゲーミフィケーションポイント: {{reward.reward_recieve_point}}</h2>
   
           {% endfor %}
     
@@ -53,9 +53,9 @@
             </form>
           
           {% elif education.ikusei_sum > 10 %}
-          {% for amari in user.point_amari_set.all %} 
+          {% for reward in user.reward_recieve_set.all %} 
   
-          <h2>残りのゲーミフィケーションポイント: {{amari.point_amari }}</h2>
+          <h2>残りのゲーミフィケーションポイント: {{reward.reward_recieve_point}}</h2>
   
           {% endfor %}              
             <br>
@@ -71,9 +71,9 @@
          
           {% elif education.ikusei_sum > 5 %}
 
-          {% for amari in user.point_amari_set.all %} 
+          {% for reward in user.reward_recieve_set.all %} 
   
-             <h2>残りのゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
+             <h2>残りのゲーミフィケーションポイント: {{reward.reward_recieve_point}}</h2>
   
             {% endfor %}
           
@@ -92,9 +92,9 @@
           
           {% elif education.ikusei_sum > 0 %}
 
-          {% for amari in user.point_amari_set.all %} 
+          {% for reward in user.reward_recieve_set.all %} 
   
-             <h2>残りのゲーミフィケーションポイント: {{ amari.point_amari}}</h2>
+             <h2>残りのゲーミフィケーションポイント: {{ reward.reward_recieve_point}}</h2>
   
           {% endfor %}
           

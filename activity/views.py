@@ -159,7 +159,8 @@ class EducationalView(LoginRequiredMixin,CreateView):
         Ikusei_sum,_= Ikusei_Sum.objects.get_or_create(user=self.request.user)
         Point_limit,_ = Point_Limit.objects.get_or_create(user=self.request.user)
         Point_amari,_ = Point_Amari.objects.get_or_create(user = self.request.user)
-        if  Point_amari.point_amari < form.instance.ikusei_point:
+        Used_point,_= Used_Point.objects.get_or_create(user = self.request.user)
+        if  reward_point.reward_recieve_point < form.instance.ikusei_point:
             form.add_error(None,'ポイントが足りません')
             return super().form_invalid(form)
         else:
@@ -224,7 +225,7 @@ class RewardListView(LoginRequiredMixin,CreateView):
         Point_limit,_= Point_Limit.objects.get_or_create(user=self.request.user)
         reward_point,_ = Reward_Recieve.objects.get_or_create(user = self.request.user)
         Point_amari,_ = Point_Amari.objects.get_or_create(user = self.request.user)
-        if Point_amari.point_amari < form.instance.point:
+        if  reward_point.reward_recieve_point < form.instance.point:
             form.add_error(None,'ポイントが足りません')
             return super().form_invalid(form)
         else:
@@ -267,7 +268,7 @@ class RewardRecieveView(LoginRequiredMixin,ListView):
     
 class RankView(LoginRequiredMixin,ListView):
     model = Excercise_Point
-
+ 
     #テンプレートファイル連携
     template_name = "kanban/rank/rank.html"
 
