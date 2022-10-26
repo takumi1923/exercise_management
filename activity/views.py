@@ -238,18 +238,6 @@ class RewardListView(LoginRequiredMixin,CreateView):
             return super().form_valid(form)
 
         
-            
-
-        
-            
-        
-        
-            
-
-       
-        
-        
-        
 
 class RewardDetailView(LoginRequiredMixin, ListView):
     model = RewardTake
