@@ -114,7 +114,23 @@
               {{ form.as_p }}
               <button type="submit" class="btn btn-primary">送信</button>
             </form>
-          
+
+          {% elif education.ikusei_sum == 0 %}
+          {% for reward in user.reward_recieve_set.all %} 
+  
+             <h2>残りのゲーミフィケーションポイント: {{ reward.reward_recieve_point}}</h2>
+  
+          {% endfor %}
+
+          <h3 class = "center">育成付与合計ポイント：{{education.ikusei_sum}}</h3>
+          <br>
+          <P>あなたに送られた育成キャラクターです！育成ポイントを使用して大切に育成しましょう！</P>
+          <P><img src="https://thumb.ac-illust.com/c3/c37190ac9cd349d9591ea7c0fdbee3b8_w.jpeg" alt="犬のイラスト" title="生まれたの犬" width="300"height="300" ></P>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">送信</button>
+          </form>  
          {% endif %}     
     {% endfor %}
     

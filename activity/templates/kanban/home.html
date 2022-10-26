@@ -14,7 +14,7 @@ body { padding-top: 70px; }
     <div class="bg-light m-3 p-2 " style="width: 240px; height: 100%">
       <h4>{{ list.title }}
       </h4>
-      {% if list.title == "これから行う予定のもの" %}　
+      {% if list.title == "これから行う予定のもの" %}
       {% for card in list.card_set.all %}
       {% if card.user.username == request.user.username %}
       <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
