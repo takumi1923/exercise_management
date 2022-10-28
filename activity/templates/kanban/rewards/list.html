@@ -4,13 +4,22 @@
 <div class = "center">
   <div class = "container">
  
-    <h1 class = "center">ご褒美選択</h1>
+    <h2 class = "center">ご褒美選択</h2>
+    <br>
+    <div class = "b">
+      <a class="btn btn-danger"href="{% url 'activity:rewards_detail'  %}" role="button">貰ったご褒美リスト！</a>
+    </div>
+    <style>
+      .b{
+        flex: left;
+      }
+    </style>
   
     <br>
 
     {% for reward in user.reward_recieve_set.all %} 
   
-      <h2 class = "center">現在のご褒美ポイント: {{ reward.reward_recieve_point}}</h2>
+      <h4 class = "center">残りのご褒美ポイント: {{ reward.reward_recieve_point}}</h4>
   
     {% endfor %}
   
@@ -20,9 +29,7 @@
       <button type="submit" class="btn btn-primary">ご褒美をもらいに行こう！</button>
     </form>
   </div>
-  <div class = "b">
-    <a class="btn btn-danger"href="{% url 'activity:rewards_detail'  %}" role="button">貰ったご褒美を見に行こう！</a>
-  </div>
+  
 </div>
 <style>
   .center{

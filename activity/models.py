@@ -102,7 +102,7 @@ class Calendar(models.Model):
         return self.title
     
 class Ikusei_Point(models.Model):
-    ikusei_point = models.IntegerField('育成にゲーミフィケーションポイントを使用する',validators=[MinValueValidator(1), MaxValueValidator(3)],default = 0)
+    ikusei_point = models.IntegerField('育成にご褒美ポイントを使用する',validators=[MinValueValidator(1), MaxValueValidator(3)],default = 0)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Ikusei_Siyou(models.Model):
