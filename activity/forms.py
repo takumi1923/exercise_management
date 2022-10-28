@@ -41,7 +41,7 @@ class CardCreateFromHomeForm(forms.ModelForm):
 class RewardForm(forms.ModelForm):
     class Meta:
         model = RewardTake
-        fields = ("date","reward","point",)
+        fields = ("reward","date","point",)
        
 
 class BS4ScheduleForm(forms.ModelForm):
