@@ -2,15 +2,17 @@
 
 {% block content %}
 <div class="container">
-  <h1 class="display-4">運動習慣向上アプリ</h1>
-  <p class="lead">運動習慣向上アプリで運動習慣管理をしてみましょう。</p>
+  <h3 class="display-4">運動習慣向上アプリ</h3>
+  <p class="lead">運動習慣管理をしてみよう!</p>
   <hr class="my-4">
   <p>週２回、３０分以上をノルマとして頑張りましょう！</p>
   <div class = "row">
-    
     <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">ログイン</a>
+    &nbsp;
     <a class="btn btn-primary btn-lg" href="{% url 'activity:signup' %}" role="button">サインアップ</a>
   </div>
+  
+  </style>
 
 </div>
 {% endblock %}
