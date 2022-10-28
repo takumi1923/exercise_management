@@ -115,7 +115,7 @@
               <button type="submit" class="btn btn-primary">送信</button>
             </form>
 
-          {% elif education.ikusei_sum == null %}
+          {% elif education == null %}
           {% for reward in user.reward_recieve_set.all %} 
   
              <h2>残りのゲーミフィケーションポイント: {{ reward.reward_recieve_point}}</h2>
