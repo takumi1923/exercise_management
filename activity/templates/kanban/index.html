@@ -6,7 +6,11 @@
   <p class="lead">運動習慣向上アプリで運動習慣管理をしてみましょう。</p>
   <hr class="my-4">
   <p>週２回、３０分以上をノルマとして頑張りましょう！</p>
-  <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">ログイン</a>
-  <a class="btn btn-primary btn-lg" href="{% url 'activity:signup' %}" role="button">サインアップ</a>
+  <div class = "row">
+    
+    <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">ログイン</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'activity:signup' %}" role="button">サインアップ</a>
+  </div>
+
 </div>
 {% endblock %}
