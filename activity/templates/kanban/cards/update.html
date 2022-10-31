@@ -10,3 +10,28 @@
   </form>
 </div>
 {% endblock %}
+
+{% block extrajs %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/timedropper/1.0/timedropper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timedropper/1.0/timedropper.min.js"></script>
+
+<script>
+  $(function () {
+    // 日付は、年-月-日 の形式でお願いする。
+    let dateFormat = 'yy-mm-dd';
+    $('#id_date').datepicker({
+      dateFormat: dateFormat
+    });
+  });
+  $(function () {
+          // timedropper
+          $("#id_start_time").timeDropper({
+              format: "H:mm",
+              setCurrentTime: false,
+          });
+      });
+</script>
+{% endblock %}
