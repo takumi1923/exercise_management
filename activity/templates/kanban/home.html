@@ -11,8 +11,8 @@ body { padding-top: 70px; }
   <div class="row flex-nowrap">
     
     {% for list in list_list %}
-    <div class="bg-light m-3 p-2 " style="width: 240px; height: 80%">
-      <h6>{{ list.title }}</h6>
+    <div class="bg-light m-3 p-2 " style="width: 45px; height: 15%">
+      <h6 class = "mozi" style = "font-size: 4;">{{ list.title }}</h6>
       {% if list.title == "これから行う予定のもの" %}
       {% for card in list.card_set.all %}
       {% if card.user.username == request.user.username %}
@@ -29,6 +29,12 @@ body { padding-top: 70px; }
             <small class="text-muted">活動時間: {{ card.excercise_time }}</small>
           </footer>
         </div>
+        <style>
+          .card-body{
+            width:45;
+            height:15%;
+          }
+        </style>
       </a>
       {% endif %}
       {% endfor %}
