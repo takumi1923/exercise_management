@@ -81,7 +81,7 @@ class Continue_Point(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Reward_Recieve(models.Model):
-    reward_recieve_point = models.IntegerField('ご褒美ポイント',default = 0)
+    reward_recieve_point = models.IntegerField('運動ポイント',default = 0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Used_Point(models.Model):
@@ -102,11 +102,11 @@ class Calendar(models.Model):
         return self.title
     
 class Ikusei_Point(models.Model):
-    ikusei_point = models.IntegerField('育成にご褒美ポイントを使用する',validators=[MinValueValidator(1), MaxValueValidator(3)],default = 0)
+    ikusei_point = models.IntegerField('育成に運動ポイントを使用する',validators=[MinValueValidator(1), MaxValueValidator(3)],default = 0)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Ikusei_Siyou(models.Model):
-    ikusei_siyou = models.IntegerField('育成にゲーミフィケーションポイントを使用する',validators=[MinValueValidator(1), MaxValueValidator(10)],default = 0)
+    ikusei_siyou = models.IntegerField('育成に運動ポイントを使用する',validators=[MinValueValidator(1), MaxValueValidator(10)],default = 0)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Ikusei_Sum(models.Model):

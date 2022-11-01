@@ -23,7 +23,7 @@ def Plot_Graph(x,y):
 	plt.xticks(rotation=45)          
 	plt.title("Exercise_Sum_Rank")    
 	plt.xlabel("User")               
-	plt.ylabel("Excercise_time_sum")             
+	plt.ylabel("exercise_time_sum")             
 	plt.tight_layout()               
 	graph = Output_Graph()           
 	return graph
