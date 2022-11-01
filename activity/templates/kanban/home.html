@@ -12,16 +12,15 @@ body { padding-top: 70px; }
     
     {% for list in list_list %}
     <div class="bg-light m-3 p-2 " style="width: 240px; height: 80%">
-      <h4>{{ list.title }}
-      </h4>
+      <h6>{{ list.title }}</h6>
       {% if list.title == "これから行う予定のもの" %}
       {% for card in list.card_set.all %}
       {% if card.user.username == request.user.username %}
       <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
         <div class="card-body">
-          <h5 class="card-title">{{ card.title }}</h5>
+          <p class="card-title">{{ card.title }}</p>
           <footer>
-            <small class="text-muted">作成者: {{ card.date }}</small>
+            <small class="text-muted">活動日: {{ card.date }}</small>
           </footer>
           <footer>
             <small class="text-muted">活動開始時間: {{ card.start_time }}</small>
