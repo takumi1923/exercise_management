@@ -5,7 +5,7 @@
   <h1>消費済みご褒美削除</h1>
   <form method="post">
     {% csrf_token %}
-    <p>カード "{{ reward.reward }}" を本当に削除してもよろしいですか？</p>
+    <p>消費済みご褒美{{ reward.reward }} を本当に削除してもよろしいですか？</p>
     <button type="submit" class="btn btn-danger">確認</button>
   </form>
 </div>
