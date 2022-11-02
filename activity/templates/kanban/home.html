@@ -10,11 +10,11 @@ body { padding-top: 70px; }
   
   <div class="row flex-nowrap">
     
-    {% for list in list_list %}
+    
     <div class="bg-light m-3 p-2 " style="width: 150px; height: 100%">
-      {% if list.title == "これから行う予定のもの" %}
-      <h6 class = "mozi">{{ list.title }}</h6>
-      {% for card in list.card_set.all %}
+      {% if list_list.title == "これから行う予定のもの" %}
+      <h6 class = "mozi">{{ list_list.title }}</h6>
+      {% for card in list_list.card_set.all %}
       {% if card.user.username == request.user.username %}
       <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
         <div class="card-body">
@@ -34,9 +34,9 @@ body { padding-top: 70px; }
       {% endif %}
       {% endfor %}
       <a href="{% url 'activity:cards_create_from_home' list.pk %}" class="text-dark"><i class="far fa-plus-square"></i> さらに予定を追加</a>
-      {% elif list.title == "代替日" %} 
-      <h6 class = "mozi">{{ list.title }}</h6>
-      {% for card in list.card_set.all %}
+      {% elif list_list.title == "代替日" %} 
+      <h6 class = "mozi">{{ list_list.title }}</h6>
+      {% for card in list_list.card_set.all %}
       {% if card.user.username == request.user.username %}
       <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
         <div class="card-body">
@@ -56,7 +56,7 @@ body { padding-top: 70px; }
       {% endfor %}
       {% endif %}<!-- urlを編集 -->
     </div>
-    {% endfor %}
+   
     
   </div>
 </div>
