@@ -8,66 +8,57 @@ body { padding-top: 70px; }
 <div class = "center">
 <div class="container" style="display: table-cell !important">
   
-  <div class="row flex-nowrap">
+    <div class="row flex-nowrap">
     
-    {% for list in list_list %}
-    {% if list.title == "しっかり行えたもの" %}
-      <div class="bg-light m-3 p-2 " style="width: 160px; height: 100%">
-      <h6 class = "mozi">{{ list.title }}</h6>
-      {% for card in list.card_set.all %}
-      {% if card.user.username == request.user.username %}
-      <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
-        <div class="card-body">
-          <p class="card-title">{{ card.title }}</p>
-          <footer>
-            <small class="text-muted">活動日: {{ card.date }}</small>
-          </footer>
-          <footer>
-            <small class="text-muted">活動開始時間: {{ card.start_time }}</small>
-          </footer>
-          <footer>
-            <small class="text-muted">活動時間: {{ card.excercise_time }}</small>
-          </footer>
-        </div>
-        
-      </a>
-      {% endif %}
-      {% endfor %}
-      
-    {% elif list.title == "行えなかったもの" %}
-      <div class="bg-light m-3 p-2 " style="width: 160px; height: 100%">
-      <h6 class = "mozi">{{ list.title }}</h6>  
-      {% for card in list.card_set.all %}
-      {% if card.user.username == request.user.username %}
-      <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
-        <div class="card-body">
-          <h5 class="card-title">{{ card.title }}</h5>
-          <footer>
-            <small class="text-muted">活動日: {{ card.date }}</small>
-          </footer>
-          <footer>
-            <small class="text-muted">活動開始時間: {{ card.start_time }}</small>
-          </footer>
-          <footer>
-            <small class="text-muted">活動時間: {{ card.excercise_time }}</small>
-          </footer>
-        </div>
-      </a>
-      {% endif %}
-      {% endfor %}
-      {% endif %}<!-- urlを編集 -->
-    </div>
+        {% for list in list_list %}
+        {% if list.title == "しっかり行えたもの" %}
+            <div class="bg-light m-3 p-2 " style="width: 160px; height: 100%">
+            <h6 class = "mozi">{{ list.title }}</h6>
+            {% for card in list.card_set.all %}
+                {% if card.user.username == request.user.username %}
+                    <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
+                        <div class="card-body">
+                            <p class="card-title">{{ card.title }}</p>
+                            <footer>
+                                <small class="text-muted">活動日: {{ card.date }}</small>
+                            </footer>
+                            <footer>
+                                <small class="text-muted">活動開始時間: {{ card.start_time }}</small>
+                            </footer>
+                            <footer>
+                                <small class="text-muted">活動時間: {{ card.excercise_time }}</small>
+                            </footer>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+            </div>  
+         {% elif list.title == "行えなかったもの" %}
+            <div class="bg-light m-3 p-2 " style="width: 160px; height: 100%">
+            <h6 class = "mozi">{{ list.title }}</h6>  
+            {% for card in list.card_set.all %}
+                {% if card.user.username == request.user.username %}
+                    <a href="{% url 'activity:cards_detail' card.pk %}" class="card m-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ card.title }}</h5>
+                            <footer>
+                                <small class="text-muted">活動日: {{ card.date }}</small>
+                            </footer>
+                            <footer>
+                                <small class="text-muted">活動開始時間: {{ card.start_time }}</small>
+                            </footer>
+                            <footer>
+                                <small class="text-muted">活動時間: {{ card.excercise_time }}</small>
+                            </footer>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+            </div>
+        {% endif %}<!-- urlを編集 -->
     {% endfor %}
-    
-  </div>
+    </div>
 </div>
-
 </div>
-
-
-
-
-
-
 
 {% endblock %}
