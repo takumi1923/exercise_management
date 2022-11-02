@@ -12,7 +12,7 @@ body { padding-top: 70px; }
     
     {% for list in list_list %}
     {% if list.title == "これから行う予定のもの" %}
-      <div class="bg-light m-3 p-2 " style="width: 160px; height: 100%">
+      <div class="bg-light m-3 p-2 " style="width: 200px; height: 140%">
       <h6 class = "mozi">{{ list.title }}</h6>
       {% for card in list.card_set.all %}
       {% if card.user.username == request.user.username %}
@@ -33,7 +33,7 @@ body { padding-top: 70px; }
       </a>
       {% endif %}
       {% endfor %}
-      <a href="{% url 'activity:cards_create_from_home' list.pk %}" class="text-dark"><i class="far fa-plus-square"></i> さらに予定を追加</a>
+      <a href="{% url 'activity:cards_create_from_home' list.pk %}" class="text-dark"><i class="far fa-plus-square"></i> 予定を追加</a>
     {% elif list.title == "代替日" %}
       <div class="bg-light m-3 p-2 " style="width: 160px; height: 100%">
       <h6 class = "mozi">{{ list.title }}</h6>  
