@@ -11,7 +11,7 @@ body { padding-top: 70px; }
   <div class="row flex-nowrap">
     
     {% for list in list_list %}
-    <div class="bg-light m-3 p-2 " style="width: 240px; height: 100%">
+    <div class="bg-light m-3 p-2 " style="width: 90vw; height: 100%">
       <h6 class = "mozi">{{ list.title }}</h6>
       {% if list.title == "これから行う予定のもの" %}
       {% for card in list.card_set.all %}
