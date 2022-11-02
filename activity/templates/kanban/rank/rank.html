@@ -4,10 +4,14 @@
 <div class="container">
     <h4>総運動活動時間ランキング</h4>
     <img src="data:image/png;base64,{{ chart | safe }}">
+
     <br>
-    <P class = "els">ほかのランキングも見てみよう！</P>
+    <br>
+    
+    <h5 class = "els">ほかのランキングも見てみよう！</h5>
     <div class = "row">
-        <P>しっかり行えている予定数ランキング</P>
+        <P>しっかり行えている予定数</P>
+        &nbsp;
         <a class="btn btn-danger"href="{% url 'activity:rank1_create'  %}" role="button">ランキングを見る</a>
     </div>
 
