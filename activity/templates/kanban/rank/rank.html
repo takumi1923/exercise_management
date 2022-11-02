@@ -2,9 +2,18 @@
 
 {% block content %}
 <div class="container">
+    <h4>総運動活動時間ランキング</h4>
     <img src="data:image/png;base64,{{ chart | safe }}">
     <img src="data:image/png;base64,{{ chart1 | safe }}">
+    <br>
+    <P class = "els">ほかのランキングも見てみよう！</P>
+    <div class = "row">
+        <P>しっかり行えている予定数ランキング</P>
+        <a class="btn btn-danger"href="{% url 'activity:rank1_create'  %}" role="button">ランキングを見る</a>
+    </div>
+
 </div>
+
 <style>
     .container{
         width:90vw;
