@@ -12,7 +12,7 @@ body { padding-top: 70px; }
     
     {% for list in list_list %}
     {% if list.title == "これから行う予定のもの" %}
-      <div class="bg-light m-3 p-2 " style="width: 200px; height: 140%">
+      <div class="bg-light m-3 p-2 " style="width: 240px; height: 140%">
       <h6 class = "mozi">{{ list.title }}</h6>
       {% for card in list.card_set.all %}
       {% if card.user.username == request.user.username %}
