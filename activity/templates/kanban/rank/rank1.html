@@ -2,9 +2,22 @@
 
 {% block content %}
 <div class="container">
+    <h4>しっかり行えている予定数ランキング</h4>
+    <br>
     <img src="data:image/png;base64,{{ chart1 | safe }}">
+
     <br>
 
    
 </div>
+<style>
+    .container{
+        text-align: center;
+        width:90vw;
+    }
+    .container img{
+        width: 90vw;
+        
+    }
+</style>
 {% endblock %}
