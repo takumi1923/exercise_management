@@ -17,6 +17,7 @@ urlpatterns = [
     path("lists/<int:pk>/delete/", views.ListDeleteView.as_view(), name="lists_delete"),
     path("cards/create/", views.CardCreateView.as_view(), name="cards_create"),
     path("cards/", views.CardListView.as_view(), name="cards_list"),
+    path("cards/done", views.CardDoneView.as_view(), name="cards_done"),
     path("cards/<int:pk>/", views.CardDetailView.as_view(), name="cards_detail"),
     path("cards/<int:pk>/update/", views.CardUpdateView.as_view(), name="cards_update"),
     path("cards/<int:pk>/delete/", views.CardDeleteView.as_view(), name="cards_delete"),

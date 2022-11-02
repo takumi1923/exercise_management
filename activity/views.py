@@ -180,7 +180,9 @@ class EducationalView(LoginRequiredMixin,CreateView):
         
         
 
-        
+class CardDoneView(LoginRequiredMixin,ListView):
+    model = List
+    template_name = "kanban/done.html"       
 
 
 
