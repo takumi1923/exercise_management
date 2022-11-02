@@ -6,13 +6,13 @@
 body { padding-top: 70px; }
 </style>
 <div class = "center">
-<div class="container" style="display: table-cell !important">
+<div class="container" style="text-align: center">
   
     <div class="row flex-nowrap">
     
         {% for list in list_list %}
         {% if list.title == "しっかり行えたもの" %}
-            <div class="bg-light m-3 p-2 " style="width: 160px; height: 100%">
+            <div class="bg-light m-3 p-2 " style="width: 200px; height: 140%">
             <h6 class = "mozi">{{ list.title }}</h6>
             {% for card in list.card_set.all %}
                 {% if card.user.username == request.user.username %}
