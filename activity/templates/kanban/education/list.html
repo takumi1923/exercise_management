@@ -75,6 +75,7 @@
          {% endif %}
               
     {% endfor %}
+    
     {% for reward in user.reward_recieve_set.all %} 
   
              <h5>残りの運動ポイント: {{ reward.reward_recieve_point}}</h5>
