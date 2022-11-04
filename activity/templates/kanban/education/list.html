@@ -24,11 +24,7 @@
             <br>
             <P><img src="https://dotup.org/uploda/dotup.org2893511.jpg_e4g2vdik1vlQYtoaYypL/dotup.org2893511.jpg" alt="犬のイラスト" title="生まれたての犬" width="300"height="300" borde></P>
             <br>
-            {% for reward in user.reward_recieve_set.all %} 
-  
-            <h5>残りの運動ポイント: {{reward.reward_recieve_point}}</h5>
-  
-            {% endfor %}
+            
           
           {% elif education.ikusei_sum > 15 %}
           
@@ -40,11 +36,7 @@
             <br>
             <P><img src="https://dotup.org/uploda/dotup.org2893510.jpg_Mnf9hYRjNitYup9P8pGo/dotup.org2893510.jpg" alt="犬のイラスト" title="生まれたて犬"width="300" height="300" ></P>
             <br>
-            {% for reward in user.reward_recieve_set.all %} 
-  
-            <h5>残りの運動ポイント: {{reward.reward_recieve_point}}</h5>
-  
-            {% endfor %}
+            
           
           {% elif education.ikusei_sum > 10 %}
                        
@@ -55,11 +47,7 @@
             <br>
             <P><img src="https://dotup.org/uploda/dotup.org2893339.jpg_h1I5qNj2j8ICd2gu56cZ/dotup.org2893339.jpg" alt="犬のイラスト" title="生まれたの犬" width="300"height="300" ></P>
             <br>
-            {% for reward in user.reward_recieve_set.all %} 
-  
-            <h5>残りの運動ポイント: {{reward.reward_recieve_point}}</h5>
-  
-            {% endfor %}
+            
             
          
           {% elif education.ikusei_sum > 5 %}
@@ -70,11 +58,7 @@
             <br>
             <P><img src="https://dotup.org/uploda/dotup.org2893508.jpg_GTRh2hg6vhK562KuhE1z/dotup.org2893508.jpg" alt="犬のイラスト" title="生まれたの犬" width="300"height="300" ></P>
             <br>
-            {% for reward in user.reward_recieve_set.all %} 
-  
-            <h5>残りの運動ポイント: {{reward.reward_recieve_point}}</h5>
-  
-            {% endfor %}
+            
             
           
           {% elif education.ikusei_sum > 0 %}
@@ -88,13 +72,13 @@
             <br>
             <P><img src="https://dotup.org/uploda/dotup.org2893507.jpg_V8hAOKEwuAuBZ0Y16wZt/dotup.org2893507.jpg" alt="犬のイラスト" title="生まれたの犬" width="300"height="300" ></P>
             <br>
-            {% for reward in user.reward_recieve_set.all %} 
+         {% endif %}
+              
+    {% endfor %}
+    {% for reward in user.reward_recieve_set.all %} 
   
              <h5>残りの運動ポイント: {{ reward.reward_recieve_point}}</h5>
   
-            {% endfor %}
-         {% endif %}
-              
     {% endfor %}
     <form method="post">
       {% csrf_token %}
