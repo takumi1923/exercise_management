@@ -136,9 +136,9 @@ class CardUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return resolve_url('activity:cards_detail', pk=self.kwargs['pk'])
+        return resolve_url('activity:home')
 
-    
+# 'activity:cards_detail', pk=self.kwargs['pk']
 
 
 class CardDeleteView(LoginRequiredMixin, DeleteView):
