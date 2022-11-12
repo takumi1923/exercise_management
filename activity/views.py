@@ -11,6 +11,7 @@ from .mixins import OnlyYouMixin, BaseCalendarMixin,MonthCalendarMixin,WeekCalen
 from .models import List,Card,Rank,Excercise_Point,Reward,RewardCreate,Excercise_Time,Continue_Point,Reward_Recieve,Calendar,RewardTake,Used_Point,Ikusei_Point,Ikusei_Sum,Point_Limit,Ikusei_Siyou,Ikusei_Daze,Point_Amari
 from . import graph
 from .import graph1
+from .import graph2
 import datetime
 
 
@@ -332,7 +333,39 @@ class Rank1View(LoginRequiredMixin,ListView):
         return super().get(request, *args, **kwargs)
               #Y軸データ
         
+class Rank2View(LoginRequiredMixin,ListView):
+    model = Ikusei_Sum
+
+    #テンプレートファイル連携
+    template_name = "kanban/rank/rank2.html"
+
+    #変数としてグラフイメージをテンプレートに渡す
+    def get_context_data(self, **kwargs):
+
+        #グラフオブジェクト
+        ls    = Ikusei_Sum.objects.all()  #モデルクラス(ProductAテーブル)読込
+        a     = [a.user.username for a in ls]           #X軸データ
+        b     = [b.ikusei_sum for b in ls]  
+        chart2 = graph2.Plot_Graph2(a,b)   
+        
+        
+        #変数を渡す
+        context2 = super().get_context_data(**kwargs)
+        context2['chart2'] = chart2
+        
+        return context2
+
     
+
+    #get処理
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+              #Y軸データ
+
+
+
+
+
 
     
 

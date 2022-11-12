@@ -24,6 +24,7 @@ urlpatterns = [
     path("cards/create/<int:list_pk>", views.CardCreateFromHomeView.as_view(), name="cards_create_from_home"),
     path("rank/",views.RankView.as_view(),name="rank_create"),
     path("rank1/",views.Rank1View.as_view(),name="rank1_create"),
+    path("rank2/",views.Rank1View.as_view(),name="rank2_create"),
     path("reward/",views.RewardListView.as_view(),name = "rewards_list"),
     path("reward/detail/",views.RewardDetailView.as_view(),name = "rewards_detail"),
     path("reward/<int:pk>/delete",views.RewardDeleteView.as_view(),name = "rewards_delete"),

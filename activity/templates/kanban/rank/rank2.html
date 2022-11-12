@@ -2,24 +2,29 @@
 
 {% block content %}
 <div class="container">
-    <h4>しっかり行えている予定数ランキング</h4>
+    <h4>育成ポイント付与ランキング</h4>
     <br>
-    <img src="data:image/png;base64,{{ chart1 | safe }}">
+    <img src="data:image/png;base64,{{ chart2 | safe }}">
 
     <br>
     <br>
 
+    
     <a class="btn btn-danger"href="{% url 'activity:rank_create'  %}" role="button">戻る</a>
 
-   
+    
+
+
+
 </div>
+
 <style>
     .container{
         text-align: center;
-        
+        width:90vw;
     }
     .container img{
-        width: 75vw;
+        width: 90vw;
         
     }
 </style>

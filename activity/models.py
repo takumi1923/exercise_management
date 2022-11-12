@@ -106,7 +106,7 @@ class Ikusei_Point(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Ikusei_Siyou(models.Model):
-    ikusei_siyou = models.IntegerField('育成に運動ポイントを使用する',validators=[MinValueValidator(1), MaxValueValidator(10)],default = 0)
+    ikusei_siyou = models.IntegerField('育成に運動ポイントを使用する',validators=[MinValueValidator(1), MaxValueValidator(5)],default = 0)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Ikusei_Sum(models.Model):
