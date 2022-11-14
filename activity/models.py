@@ -65,7 +65,7 @@ class RewardTake(models.Model):
     date = models.DateField('ご褒美を受けとる日付')
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     reward = models.ForeignKey(Reward,on_delete=models.CASCADE)
-    point = models.IntegerField('ご褒美に使用するポイント',validators=[MinValueValidator(1), MaxValueValidator(10)],default = 0)
+    point = models.IntegerField('ご褒美に使用するポイント',validators=[MinValueValidator(1), MaxValueValidator(5)],default = 0)
 
 
 
