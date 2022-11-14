@@ -25,7 +25,7 @@ class Card(models.Model):
         return self.title
 
 class Excercise_Point(models.Model):
-    excercise_Point = models.IntegerField('運動ポイント',default=0)
+    excercise_Point = models.DecimalField(max_digits=5,decimal_places=1,default=0.0)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 
@@ -48,7 +48,7 @@ class Reward(models.Model):
         return self.title
 
 class Comsumption_Point(models.Model):
-    comsumption_point= models.IntegerField('消費ポイント',validators=[MinValueValidator(1), MaxValueValidator(10)],default=0)
+    comsumption_point= models.IntegerField('消費ポイント',validators=[MinValueValidator(1), MaxValueValidator(5)],default=0)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
         return str(self.comsumption_point)
